@@ -32,3 +32,12 @@ print("Forma:", calificaciones.shape)        # filas x columnas
 print("Tipo de datos:", calificaciones.dtype)
 
 print("\nArchivo 'BaseDeDatos_Estudiantes.xlsx' y 'BaseDeDatos_Estudiantes.csv' creados con éxito.")
+
+df.to_csv("BaseDeDatos_Estudiantes.csv")
+
+df.to_excel(r"C:\Users\PC\Desktop\BaseDeDatos_Estudiantes.xlsx", sheet_name="Calificaciones")
+df.to_csv(r"C:\Users\PC\Desktop\BaseDeDatos_Estudiantes.csv")
+
+import os
+os.startfile(r"C:\Users\PC\Desktop\BaseDeDatos_Estudiantes.xlsx")
+
