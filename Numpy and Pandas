@@ -1,0 +1,34 @@
+import numpy as np
+import pandas as pd
+
+
+# Crear datos con NumPy
+estudiantes = np.array(["Angel", "Gerardo", "Sofía", "Marco", "Andrea"])   
+materias = np.array(["Español", "Ingles", "Filosofia"])     
+
+calificaciones = np.random.randint(60, 101, size=(len(estudiantes), len(materias)))  
+
+print("Matriz de calificaciones (NumPy):")
+print(calificaciones)
+
+# Convertir a DataFrame con Pandas
+df = pd.DataFrame(calificaciones, index=estudiantes, columns=materias)
+
+print("\nBase de datos en Pandas:")
+print(df)
+
+# Exportar a Excel
+df.to_excel("BaseDeDatos_Estudiantes.xlsx", sheet_name="Calificaciones")
+
+# Extra
+df["Promedio"] = df.mean(axis=1)
+df.loc["Promedio General"] = df.mean()
+df.to_csv("BaseDeDatos_Estudiantes.csv")
+
+# Arreglo: Mostrar información del arreglo de NumPy
+print("\nInformación del arreglo de calificaciones:")
+print("Dimensiones:", calificaciones.ndim)   # cuántas dimensiones tiene
+print("Forma:", calificaciones.shape)        # filas x columnas
+print("Tipo de datos:", calificaciones.dtype)
+
+print("\nArchivo 'BaseDeDatos_Estudiantes.xlsx' y 'BaseDeDatos_Estudiantes.csv' creados con éxito.")
